@@ -1,3 +1,3 @@
 Rails.application.routes.draw do
-resources :cocktails, only: [:index, :show]
+resources :cocktails, only: [:index, :show, :new]
 end

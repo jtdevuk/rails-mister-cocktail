@@ -8,6 +8,10 @@ class CocktailsController < ApplicationController
   def show    
   end
 
+  def new
+    @cocktail = Cocktail.new
+  end
+
   private
 
   def set_cocktail
