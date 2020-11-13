@@ -1,10 +1,14 @@
 <h1><%= @cocktail.name %></h1>
 
+<% if @cocktail.photo.attached? %>
+  <p>
+    <%= cl_image_tag @cocktail.photo.key, height: 300, width: 400, crop: :fill %>
+  </p>
+<% end %>
+
 <% @doses.each do |dose| %>
   <p><%= dose.description %>|<%= dose.ingredient.name %>|<%= link_to "X", cocktail_dose_path(@cocktail, dose), method: :delete %></p>
 <% end %>
+
 <%= link_to "Back to cocktails list", cocktails_path %>
 <%= link_to "Add a new dose", new_cocktail_dose_path(@cocktail) %>
-
-
-
