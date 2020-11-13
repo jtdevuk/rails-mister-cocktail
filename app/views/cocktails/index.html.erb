@@ -11,7 +11,14 @@
 <div class="card-grid">
   <% @cocktails.each do |cocktail| %>
     <div class="card-product">
-      <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
+      <div class="card-photo-box">
+        <% if cocktail.photo.attached? %>      
+          <%= cl_image_tag cocktail.photo.key%>      
+        <% else %>
+          <%= cl_image_tag ("https://images.unsplash.com/photo-1587223962930-cb7f31384c19?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80") %>
+        <% end %>
+      </div> 
+
       <div class="card-product-infos">
         <h2><%= link_to cocktail.name, cocktail_path(cocktail) %></h2>
         <p>Product description with <strong>relevant info</strong> only.</p>
@@ -20,10 +27,3 @@
   <% end %>
 </div>
 <%= link_to "Add a new cocktail", new_cocktail_path %>
-<%# 
-
-
-
-<!-- for face detection -->
-<%# <%= cl_image_tag("sample",
-      width: 150, height: 150, crop: :thumb, gravity: :face) %>
