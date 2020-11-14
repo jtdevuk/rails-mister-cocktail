@@ -1,6 +1,6 @@
 <div class="container">
 <h1 class="text-center">Create a new cocktail</h1>
-  <div class="container mt-3 w-50">
+  <div class="container col-12 col-md-8 col-lg-6 mt-3">
     <%= simple_form_for(@cocktail) do |f| %>
       <%= f.input :name %>
       <%= f.input :photo, as: :file %>
