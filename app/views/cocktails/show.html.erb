@@ -3,6 +3,8 @@
 
   <% if @cocktail.photo.attached? %>
     <%= cl_image_tag @cocktail.photo.key, height: 300, width: 400, crop: :fit, class: "mx-auto d-block mb-5" %>
+    <% else %>
+      <%= cl_image_tag ("https://images.unsplash.com/photo-1587223962930-cb7f31384c19?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=200"), class: "mx-auto d-block mb-5" %>
   <% end %>
 
     <% if @cocktail.doses.count > 0 %>
@@ -10,6 +12,7 @@
         <tr>
           <th>Quantity</th>
           <th>Ingredient</th>
+          <th></th>
         </tr>
         <% @doses.each do |dose| %>
           <tr>
