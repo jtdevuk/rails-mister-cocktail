@@ -1,10 +1,12 @@
 .page-link {
+  display: inline-block;
   font-size: 15px;
   background-color: transparent;
   border: none;
   color: black;
   opacity: 0.7;
   font-family: 'Merriweather', serif;
+  width: 200px;
 }
 
 .page-link:hover {
