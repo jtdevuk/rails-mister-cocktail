@@ -1,27 +1,29 @@
 <div class="container mt-3">
-  <h1 class="text-center"><%= @cocktail.name %></h1>
+  <h1 class="text-center mb-5"><%= @cocktail.name %></h1>
 
   <% if @cocktail.photo.attached? %>
-    <%= cl_image_tag @cocktail.photo.key, height: 300, width: 400, crop: :fit, class: "mx-auto d-block" %>
+    <%= cl_image_tag @cocktail.photo.key, height: 300, width: 400, crop: :fit, class: "mx-auto d-block mb-5" %>
   <% end %>
 
-  
-  <% if @cocktail.doses.count > 0 %>
-    <table style="width:50%" class="mt-5 mx-auto">
-      <tr>
-        <th>Quantity</th>
-        <th>Ingredient</th>
-      </tr>
-      <% @doses.each do |dose| %>
+    <% if @cocktail.doses.count > 0 %>
+      <table style="width:50%" class="mt-5 mx-auto">
         <tr>
-          <td><%= dose.description %></td>
-          <td><%= dose.ingredient.name %></td>
-          <td><%= link_to "Remove Ingredient", cocktail_dose_path(@cocktail, dose), method: :delete %></td>
-        </tr>   
-      <% end %>
-    </table>
-  <br>
-  <% end %> 
-  
-  <%= link_to "Add a new ingredient", new_cocktail_dose_path(@cocktail) %>  
+          <th>Quantity</th>
+          <th>Ingredient</th>
+        </tr>
+        <% @doses.each do |dose| %>
+          <tr>
+            <td><%= dose.description %></td>
+            <td><%= dose.ingredient.name %></td>
+            <td><%= link_to "Remove Ingredient", cocktail_dose_path(@cocktail, dose), method: :delete %></td>
+          </tr>   
+        <% end %>
+      </table>
+      <% else %>    
+      <div class="text-center">No ingredients yet!</div>
+    <% end %>
+
+    <div class="text-center">
+      <%= link_to "Add a new ingredient", new_cocktail_dose_path(@cocktail) %>  
+    </div>
   </div>
