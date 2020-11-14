@@ -7,3 +7,17 @@
   grid-gap: 16px;
 }
 
+@media(max-width: 1000px) {
+  .card-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media(max-width: 770px) {
+  .card-grid {
+    grid-template-columns: 1fr;
+  }
+  .card-product {
+    margin: 0px auto 30px auto;
+  }
+}
