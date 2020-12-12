@@ -9,7 +9,11 @@
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  </head>
+    <meta property="og:title" content="Cocktails on the Couch" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="<%= request.original_url %>" />
+    <meta property="og:image" content="<%= image_tag "og.png" %>" />
+    <meta property="og:site_name" content="Cocktails on the Couch" />  </head>
 
   <body>
 
@@ -40,29 +44,7 @@
   </div>
 </div>
 
-
- 
   <%= yield %>  
+
   </body>
 </html>
-
-
-
-
-
-
-<%# 
- <div class="my-navbar">
-  
-
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav mr-auto">
-      <li class="nav-link">
-        
-      <%# </li>
-      <li class="nav-link">
-        
-      <%# </li>      
-    </ul>
-  </div>
-</div>   %>
